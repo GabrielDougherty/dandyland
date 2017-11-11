@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>120</y>
+      <w>230</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>AdvanceT
+--
+-requirements:vector&lt;string&gt;
+-name:string
+--
++AdvanceT(string)
+
++Name():string
++Requirements():vector&lt;string&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>120</y>
+      <w>260</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>NodeT
+--
+-data:AdvanceT
+-children:vector&lt;NodeT*&gt;
+-parents:vector&lt;NodeT*&gt;
+--
++NodeT(Advance a)
+
++AddParent(NodeT *)
++AddChild(NodeT *)
+
++Parents(void):const vector&lt;NodeT *&gt;
++Children(void):const vector&lt;NodeT *&gt;
+
++Advance(void):AdvanceT
+
++IsParent(AdvanceT): bool
++IsChild(AdvanceT):bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>230</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>130</y>
+      <w>260</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>ForestT
+--
+-advances: vector&lt;NodeT *&gt;
+--
++ForestT()
++ForestT(string)
++~Forrest()
+
++AdvanceExists(string):bool
+
++PrintParents(string)
++PrintChildren(string)
++PrintAll()
+
+-DFSPrint(NodeT*, int, DirectionT)
+
+-DFS(NodeT *, string): NodeT *
+-FindAdvance(string): NodeT *
+-FixParents(NodeT *)
+
+-AddAdvance(AdvanceT)
+-FixAdvances()
+
+-KillTree(NodeT *,vector&lt;NodeT *&gt; &amp;)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>240</y>
+      <w>110</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>540</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>DirectionT</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>470</y>
+      <w>100</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>80.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

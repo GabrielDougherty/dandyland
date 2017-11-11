@@ -1,0 +1,42 @@
+Pottery,-,1,VP,1,Mitigate Famine
+Politics,Monarchy,1,Leader Rolls
+Sailing,-,2,Move by Sea
+Navigation,Sailing,1,VP,1,Enter Deep Sea
+Medicine,Husbandry,1,VP,1,Mitigate Plague
+Fortifications,Masonry,1,War
+Chariots,Wheel,1,War
+Archery,-,1,War
+Siegecraft,Archery,1,War
+Cavalry,Husbandry,1,War
+Biremes,Shipbuilding,1,War
+Triremes,Biremes,1,War
+Coinage,Mathematics,1,Build Rolls
+Philosophy,Writing,1,Idea Rolls
+Irrigation,Husbandry,1,Growth Rolls
+Wheel,-,1,Migration Rolls
+Music,-,2,VP
+Metal Work,-,1,War
+Drama,Mythology,2,VP
+Monotheism,Mythology,1,Trade Rolls
+Roads,-,0,PT
+Masonry,-,2,VP
+Literature,Writing,2,VP
+Law,Writing,1,Reroll
+Writing,-,2,VP
+Architecture,Masonry,1,VP
+Engineering,Architecture,1,VP,1,Mitigate Floods
+Shipbuilding,-,2,VP
+Mythology,-,2,VP
+Husbandry,-,1,Growth Rolls
+Mining,-,1,Build Rolls
+Mathematics,-,1,Idea Rolls
+Monarchy,Law,1,VP,1,Mitigate Revolts
+Aqueduct,Engineering,1,VP,1,City
+Glass Working,-,2,VP
+Geography,Mathematics;Sailing,1,Migration Rolls
+School,Literature;Mathematics,2,VP,1,Mitigate Barbarian,1,Idea Rolls,1,City
+Trade School,School;Metal Work,2,VP,1,Mitigate Barbarian,1,Idea Rolls,1,City
+College,School;Philosophy,2,VP,1,Mitigate Famine,1,Idea Rolls,1,City
+University,College;Law,2,VP,1,Mitigate Barbarian,1,Idea Rolls,1,City
+Research University,University,2,VP,1,Mitigate Barbarian,1,Idea Rolls,1,City
+Library,Literature;Mathematics;School;Philosophy,2,VP,1,Mitigate Barbarian,1,Idea Rolls,1,City
