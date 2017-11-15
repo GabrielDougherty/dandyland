@@ -9,11 +9,27 @@ class ForestT {
 public:
 	inline ForestT() : ForestT("Advance") {}
 	ForestT(std::string);
+	~ForestT();
 
-	void AddAdvance(const AdvanceT&);
-	ptr FindAdvance(std::string advanceName);
+	bool AdvanceExists(std::string);
+
+	void PrintParents(std::string);
+	void PrintChildren(std::string);
+	void PrintAll();
 private:
-	std::vector<NodeT> roots;
+	void DFSPrint(ptr, int, DirectionT);
+
+	ptr DFS(ptr, std::string);
+	ptr FindAdvance(std::string);
+	void FixParents(ptr);
+
+	void AddAdvance(/*const*/ AdvanceT);
+	void FixAdvances();
+
+	void KillTree(ptr, vector<ptr>);
+	std::vector<ptr> advances;
+
+	int ADVANCE_ALREADY_EXISTS = 1;
 };
 
 

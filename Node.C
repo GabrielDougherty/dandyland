@@ -9,20 +9,6 @@ const AdvanceT NodeT::Advance() const {
 	return advance;
 }
 
-bool NodeT::IsChild(const AdvanceT& other) {
-	for (auto& parent : parents) // maybe use &&
-		if (other == parent->Advance())
-			return true;
-	return false;
-}
-
-bool NodeT::IsParent(const AdvanceT& other) {
-	for (auto& child : children)
-		if (other == child->Advance())
-			return true;
-	return false;
-}
-
 void NodeT::AddParent(ptr other) {
 	if (other != nullptr) {
 		if (!IsChild(other->Advance())) {
@@ -39,4 +25,26 @@ void NodeT::AddChild(ptr other) {
 			other->AddParent(this);
 		}
 	}
+}
+
+const vector<ptr> NodeT::Parents() const {
+	return parents;
+}
+
+const vector<ptr> NodeT::Children() const {
+	return children;
+}
+
+bool NodeT::IsParent(const AdvanceT& other) {
+	for (auto& child : children)
+		if (other == child->Advance())
+			return true;
+	return false;
+}
+
+bool NodeT::IsChild(const AdvanceT& other) {
+	for (auto& parent : parents) // maybe use &&
+		if (other == parent->Advance())
+			return true;
+	return false;
 }
