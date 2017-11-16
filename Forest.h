@@ -5,6 +5,8 @@
 #include "Advance.h"
 #include "Node.h"
 
+enum class DirectionT {UP,DOWN,LEFT,RIGHT};
+
 class ForestT {
 public:
 	inline ForestT() : ForestT("Advance") {}
@@ -26,13 +28,13 @@ private:
 	void AddAdvance(/*const*/ AdvanceT);
 	void FixAdvances();
 
-	void KillTree(ptr, vector<ptr>);
+	void KillTree(ptr, std::vector<ptr>);
 	std::vector<ptr> advances;
+
+
 
 	int ADVANCE_ALREADY_EXISTS = 1;
 };
-
-
 
 
 #endif

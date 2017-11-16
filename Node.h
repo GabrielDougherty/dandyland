@@ -14,8 +14,8 @@ public:
 	NodeT(AdvanceT other) : advance(other) { } ;
 	void AddParent(ptr);
 	void AddChild(ptr);
-	const vector<ptr> Parents() const;
-	const vector<ptr> Children() const;
+	const std::vector<ptr> Parents() const;
+	const std::vector<ptr> Children() const;
 	const AdvanceT Advance() const;
 	bool IsChild(const AdvanceT&);
 	bool IsParent(const AdvanceT&);

@@ -6,7 +6,7 @@ OBJS = simplemain
 
 all: ${OBJS}
 
-simplemain: Node.o Advance.o
+simplemain: Forest.o Node.o Advance.o
 main: Forest.o Node.o Advance.o
 AllTest: Forest.o Node.o Advance.o
 
