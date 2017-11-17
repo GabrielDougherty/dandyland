@@ -5,7 +5,7 @@
 using namespace std;
 
 ForestT::ForestT(string filename) {
-	// This is not done
+	// This is not done probably maybe
 	ifstream inFile(filename);
 
 	string line;
@@ -97,3 +97,4 @@ void FixParents(ptr tree) {
 	for (auto child : tree->Children())
 		FixParents(child);
 }
+
