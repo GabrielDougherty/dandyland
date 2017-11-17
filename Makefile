@@ -1,11 +1,12 @@
 CXXFLAGS = -g -O3 -Wall -Wextra -Wuninitialized -pedantic -std=c++14
 
 #OBJS =   main  AllTest
-OBJS = NodeTest
-
+#OBJS = NodeTest
+OBJS = ForestTest
 
 all: ${OBJS}
 
+ForestTest: Forest.o Advance.o
 NodeTest: Node.o Advance.o
 main: Forest.o Node.o Advance.o
 AllTest: Forest.o Node.o Advance.o

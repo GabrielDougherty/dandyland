@@ -48,3 +48,6 @@ bool NodeT::IsChild(const AdvanceT& other) {
 			return true;
 	return false;
 }
+
+// bool operator==(const Node& other) const {
+// 	return other

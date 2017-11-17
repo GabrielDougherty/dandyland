@@ -15,6 +15,14 @@ ForestT::ForestT(string filename) {
 	FixAdvances();
 }
 
+ForestT::~ForestT() {
+	vector<ptr> killList;
+	for (auto tree : advances)
+		KillTree(tree, killList);
+	for (auto tree : killList)
+		delete tree;
+}
+
 void ForestT::AddAdvance(AdvanceT newAdvance) {
 	if (FindAdvance(newAdvance.Name()) != nullptr)
 		throw ADVANCE_ALREADY_EXISTS;
@@ -65,10 +73,10 @@ ptr ForestT::DFS(ptr tree, string advanceName) {
 void ForestT::FixAdvances() {
 	vector<ptr> toDelete; // vector of nodes to delete
 	for (auto tree : advances) {
-		if (tree->Requirements().size() > 0) {
+		if (tree->Advance().Requirements().size() > 0) {
 			// need to delete it from forest
 			toDelete.push_back(tree);
-			for (auto req : tree->Requirements()) {
+			for (auto req : tree->Advance().Requirements()) {
 				FindAdvance(req)->AddChild(tree);
 			}
 		}
@@ -77,9 +85,17 @@ void ForestT::FixAdvances() {
 
 	// remove nodes that have requirements from the forest
 	for (auto tree : toDelete) {
-		advances.erase(
-					   find(advance.cbegin(), advance.cend(), tree)
-					   );
+
+		advances.erase(/*find thing to erase*/);
+		// advances.erase( // PLAYING WITH LAMBDA EXPRESSIONS
+		// 			   [tree, adv = this->advances]() -> vector<ptr>::const_iterator{
+		// 				   vector<ptr>::const_iterator it;
+		// 				   for (it = adv.cbegin(); it != adv.cend(); it++)
+		// 					   if (*it == tree)
+		// 						   return it;
+		// 				   return it;
+		// 			   }
+		// 			   );
 	}
 
 	for (auto tree : advances)
@@ -87,7 +103,7 @@ void ForestT::FixAdvances() {
 }
 
 void FixParents(ptr tree) {
-	for (auto req : tree->Requirements()) {
+	for (auto req : tree->Advance().Requirements()) {
 		ptr foundReq = FindAdvance(req);
 
 		// if the node is not a child of the parent
@@ -98,3 +114,56 @@ void FixParents(ptr tree) {
 		FixParents(child);
 }
 
+void KillTree(ptr tree, vector<ptr> killList) {
+	auto it = find(killList.cbegin(), killList.cend(), tree);
+
+	if (it != killList.cend())
+		killList.push_back(tree);
+
+	for (auto child : tree->Children()) {
+		KillTree(child, killList);
+	}
+}
+
+bool AdvanceExists(string advanceName) {
+	for (auto tree : advances)
+		if (DFS(tree, advanceName) != nullptr)
+			return true;
+	return false;
+}
+
+void PrintParents(string advanceName) {
+	ptr foundAdvance = FindAdvance(advanceName);
+
+	DFSPrint(foundAdvance, 0, DirectionT::UP);
+}
+
+void PrintChildren(string advanceName) {
+	ptr foundAdvance = FindAdvance(advanceName);
+
+	DFSPrint(foundAdvance, 0, DirectionT::DOWN);
+}
+
+void PrintAll() {
+	for (auto tree : advances) {
+		PrintChildren(tree);
+	}
+}
+
+void DFSPrint(ptr tree, int depth, DirectionT direction) {
+	// print depth tabs
+	for (int i = 0; i < depth; i++)
+		cout << "\t";
+
+	cout << tree->Advance().Name() << endl;
+
+	switch (direction) {
+	case DirectionT::UP:
+		for (auto parent : tree->Parents())
+			DFSPrint(parent, depth+1, DirectionT::UP);
+	}
+	case DirectionT::DOWN:
+		for (auto parent : tree->Children())
+			DFSPrint(parent, depth+1, DirectionT::DOWN);
+	}
+}

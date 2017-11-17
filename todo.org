@@ -1,12 +1,43 @@
 *CSCI 330 Homework 7 TODO*
 * TODO Fixes[0/1]
 ** TODO change "ptr" to something that makes sense [[file:Node.h:10][here]]
-* TODO Things left to implement[1/3]
+* TODO Things left to implement[1/5]
 ** DONE NodeT
 *** Implement Parents() and Children()
-** TODO Forest[0/3]
-*** TODO Forest.h
+** TODO NodeTest [1/2]
+*** TODO Test IsParent and IsChild with assert()'s
+*** DONE Parents(), Children(), ctor, Add{Parent|Child}(), Advance()
+** TODO Forest[1/2]
 *** TODO Check cv-qualifiers
-*** TODO Forest.C
+*** DONE Implement functions [13/13]
+**** DONE ctor
+**** DONE AddAdvance
+**** DONE FindAdvance
+**** DONE DFS
+**** DONE FixAdvances
+**** DONE FixParents
+**** DONE Destructor
+**** DONE KillTree
+**** DONE AdvanceExists
+**** DONE PrintParents
+**** DONE PrintChildren
+**** DONE PrintAll
+**** DONE DFSPrint
+** TODO ForestTest [0/2]
+*** TODO Implement
+*** TODO Test functions [0/13]
+**** TODO ctor
+**** TODO AddAdvance
+**** TODO FindAdvance
+**** TODO DFS
+**** TODO FixAdvances
+**** TODO FixParents
+**** TODO Destructor
+**** TODO KillTree
+**** TODO AdvanceExists
+**** TODO PrintParents
+**** TODO PrintChildren
+**** TODO PrintAll
+**** TODO DFSPrint
 ** TODO Direction
 *** just put it in Forest
