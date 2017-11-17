@@ -6,7 +6,7 @@ OBJS = ForestTest
 
 all: ${OBJS}
 
-ForestTest: Forest.o Advance.o
+ForestTest: Forest.o Advance.o Node.o
 NodeTest: Node.o Advance.o
 main: Forest.o Node.o Advance.o
 AllTest: Forest.o Node.o Advance.o

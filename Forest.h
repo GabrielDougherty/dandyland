@@ -2,10 +2,11 @@
 #define FOREST
 #include <vector>
 #include <string>
+#include <algorithm>
 #include "Advance.h"
 #include "Node.h"
 
-enum class DirectionT {UP,DOWN,LEFT,RIGHT};
+enum class DirectionT {UP,DOWN};
 
 class ForestT {
 public:
