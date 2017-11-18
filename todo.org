@@ -1,15 +1,17 @@
 *CSCI 330 Homework 7 TODO*
-* TODO Fixes[4/5]
-** TODO change "ptr" to something that makes sense [[file:Node.h:10][here]]
+* TODO Fixes[5/6]
+** TODO change "ptr" to something that makes sense [[file:Node.h::10][here]]
 ** DONE DFSPrint
 ** DONE Forest fix DFS
 ** DONE +AddAdvance+
 ** DONE +FixAdvances+
-* TODO Things left to implement[2/4]
+** DONE Change comment [[file:NodeTest.C::41][here]]
+* TODO Things left to implement[3/4]
 ** DONE NodeT
 *** Implement Parents() and Children()
-** TODO NodeTest [1/2]
-*** TODO Test IsParent and IsChild with assert()'s
+** DONE NodeTest [3/3]
+*** DONE Test IsParent and IsChild with assert()'s
+*** DONE Test all functions with assert()'s
 *** DONE Parents(), Children(), ctor, Add{Parent|Child}(), Advance()
 ** DONE Forest[3/3]
 *** DONE Check cv-qualifiers
@@ -29,7 +31,7 @@
 **** DONE DFSPrint
 *** DONE Direction
 **** just put it in Forest**
-** TODO ForestTest [1/3]
+** TODO ForestTest [0/2]
 *** TODO Implement
 *** TODO Test functions [0/13]
 **** TODO ctor

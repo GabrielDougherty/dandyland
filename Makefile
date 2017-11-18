@@ -1,8 +1,8 @@
 CXXFLAGS = -g -O3 -Wall -Wextra -Wuninitialized -pedantic -std=c++14
 
 #OBJS =   main  AllTest
-#OBJS = NodeTest
-OBJS = ForestTest main AllTest
+OBJS = NodeTest
+#OBJS = ForestTest main AllTest NodeTest
 
 all: ${OBJS}
 
@@ -21,5 +21,12 @@ Forest.o: Forest.h Node.h Advance.h
 clean:
 	rm -f ${OBJS} *.o
 
-memcheck: main
-	valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all ./main
+memcheck: ${OBJS}
+	for i in ${OBJS};\
+		do valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all ./$$i;\
+	done 
+
+test:
+	for i in ${OBJS};\
+		do ./$$i;\
+	done 
