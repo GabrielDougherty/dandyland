@@ -22,4 +22,4 @@ clean:
 	rm -f ${OBJS} *.o
 
 memcheck: main
-	valgrind --leak-check=full --show-leak-kinds=all ./main
+	valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all ./main

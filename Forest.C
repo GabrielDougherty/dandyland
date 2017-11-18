@@ -10,8 +10,11 @@ ForestT::ForestT(string filename) {
 
 	string line;
 
-	while (getline(inFile, line))
+	cout << "In ForestT constructor" << endl;
+	while (getline(inFile, line)) {
+		cout << "\t advance line: " << line << endl;
 		AddAdvance(AdvanceT(line));
+	}
 	FixAdvances();
 }
 
@@ -28,13 +31,12 @@ void ForestT::AddAdvance(AdvanceT newAdvance) {
 		throw ADVANCE_ALREADY_EXISTS;
 
 	ptr foundAdvance;
-	ptr newNode;
+	ptr newNode = new NodeT(newAdvance);
 	bool isChild = false;
 
-	for (auto req : newAdvance.Requirements()) {
+	for (string req : newAdvance.Requirements()) {
 		foundAdvance = FindAdvance(req);
 		if (foundAdvance != nullptr) {
-			newNode = new NodeT(newAdvance);
 			foundAdvance->AddChild(newNode);
 			isChild = true;
 		}
