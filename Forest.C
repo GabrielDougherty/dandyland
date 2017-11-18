@@ -46,7 +46,7 @@ void ForestT::AddAdvance(AdvanceT newAdvance) {
 		advances.push_back(newNode);
 }
 
-ptr ForestT::FindAdvance(string advanceName) {
+ptr ForestT::FindAdvance(string advanceName) const {
 	ptr foundAdvance;
 	for (auto tree : advances) {
 		foundAdvance = DFS(tree, advanceName);
@@ -56,7 +56,7 @@ ptr ForestT::FindAdvance(string advanceName) {
 	return nullptr;
 }
 
-ptr ForestT::DFS(ptr tree, string advanceName) {
+ptr ForestT::DFS(ptr tree, string advanceName) const {
 	if (tree == nullptr)
 		return nullptr;
 	if (tree->Advance().Name() == advanceName)
@@ -115,32 +115,33 @@ void ForestT::KillTree(ptr tree, vector<ptr> killList) {
 	}
 }
 
-bool ForestT::AdvanceExists(string advanceName) {
+bool ForestT::AdvanceExists(string advanceName) const {
 	for (auto tree : advances)
 		if (DFS(tree, advanceName) != nullptr)
 			return true;
 	return false;
 }
 
-void ForestT::PrintParents(string advanceName) {
+void ForestT::PrintParents(string advanceName) const {
 	ptr foundAdvance = FindAdvance(advanceName);
 
 	DFSPrint(foundAdvance, 0, DirectionT::UP);
 }
 
-void ForestT::PrintChildren(string advanceName) {
+void ForestT::PrintChildren(string advanceName) const {
 	ptr foundAdvance = FindAdvance(advanceName);
 
 	DFSPrint(foundAdvance, 0, DirectionT::DOWN);
 }
 
-void ForestT::PrintAll() {
+void ForestT::PrintAll() const {
 	for (auto tree : advances) {
 		PrintChildren(tree->Advance().Name());
 	}
 }
 
-void ForestT::DFSPrint(ptr tree, int depth, DirectionT direction) {
+void ForestT::DFSPrint(ptr tree, int depth,
+					   DirectionT direction) const {
 	// print depth tabs
 	for (int i = 0; i < depth; i++)
 		cout << "\t";
