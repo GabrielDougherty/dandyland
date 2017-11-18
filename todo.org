@@ -1,8 +1,10 @@
 *CSCI 330 Homework 7 TODO*
-* TODO Fixes[0/3]
+* TODO Fixes[4/5]
 ** TODO change "ptr" to something that makes sense [[file:Node.h:10][here]]
-** TODO Forest fix DFS
-** TODO AddAdvance
+** DONE DFSPrint
+** DONE Forest fix DFS
+** DONE +AddAdvance+
+** DONE +FixAdvances+
 * TODO Things left to implement[2/4]
 ** DONE NodeT
 *** Implement Parents() and Children()

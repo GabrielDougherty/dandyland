@@ -29,7 +29,7 @@ private:
 	void AddAdvance(/*const*/ AdvanceT);
 	void FixAdvances();
 
-	void KillTree(ptr, std::vector<ptr>);
+	void KillTree(ptr, std::vector<ptr>&);
 	std::vector<ptr> advances;
 
 

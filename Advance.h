@@ -17,7 +17,6 @@ class AdvanceT{
 	bool operator==(const AdvanceT&) const;
 	bool operator!=(const AdvanceT&) const;
 
-
  private:
    	std::string name;
 	std::vector<std::string> prereq;

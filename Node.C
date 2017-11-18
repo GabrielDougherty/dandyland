@@ -35,19 +35,16 @@ const vector<ptr> NodeT::Children() const {
 	return children;
 }
 
-bool NodeT::IsParent(const AdvanceT& other) {
+bool NodeT::IsParent(const AdvanceT& other) const {
 	for (auto& child : children)
 		if (other == child->Advance())
 			return true;
 	return false;
 }
 
-bool NodeT::IsChild(const AdvanceT& other) {
+bool NodeT::IsChild(const AdvanceT& other) const {
 	for (auto& parent : parents) // maybe use &&
 		if (other == parent->Advance())
 			return true;
 	return false;
 }
-
-// bool operator==(const Node& other) const {
-// 	return other

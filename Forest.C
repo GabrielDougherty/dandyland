@@ -10,18 +10,25 @@ ForestT::ForestT(string filename) {
 
 	string line;
 
-	cout << "In ForestT constructor" << endl;
-	while (getline(inFile, line)) {
-		cout << "\t advance line: " << line << endl;
+	while (getline(inFile, line))
 		AddAdvance(AdvanceT(line));
-	}
+
 	FixAdvances();
 }
 
 ForestT::~ForestT() {
+	cout << "ENTERING DESTRUCTOR" << endl;
+
 	vector<ptr> killList;
 	for (auto tree : advances)
 		KillTree(tree, killList);
+
+	cout << "KILLLIST LENGTH" << killList.size() << endl;
+	
+	// DEBUG: print killList
+	for (auto it : killList)
+		cout << "\t KILLING " << it->Advance().Name() << endl;
+	
 	for (auto tree : killList)
 		delete tree;
 }
@@ -106,15 +113,14 @@ void ForestT::FixParents(ptr tree) {
 		FixParents(child);
 }
 
-void ForestT::KillTree(ptr tree, vector<ptr> killList) {
+void ForestT::KillTree(ptr tree, vector<ptr>& killList) {
 	auto it = find(killList.cbegin(), killList.cend(), tree);
 
-	if (it != killList.cend())
+	if (it == killList.cend())
 		killList.push_back(tree);
 
-	for (auto child : tree->Children()) {
+	for (ptr child : tree->Children())
 		KillTree(child, killList);
-	}
 }
 
 bool ForestT::AdvanceExists(string advanceName) const {
@@ -155,7 +161,7 @@ void ForestT::DFSPrint(ptr tree, int depth,
 		for (auto parent : tree->Parents())
 			DFSPrint(parent, depth+1, DirectionT::UP);
 	case DirectionT::DOWN:
-		for (auto parent : tree->Children())
-			DFSPrint(parent, depth+1, DirectionT::DOWN);
+		for (auto child : tree->Children())
+			DFSPrint(child, depth+1, DirectionT::DOWN);
 	}
 }
