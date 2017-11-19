@@ -17,24 +17,16 @@ ForestT::ForestT(string filename) {
 }
 
 ForestT::~ForestT() {
-	cout << "ENTERING DESTRUCTOR" << endl;
-
 	vector<ptr> killList;
 	for (auto tree : advances)
 		KillTree(tree, killList);
-
-	cout << "KILLLIST LENGTH" << killList.size() << endl;
-	
-	// DEBUG: print killList
-	for (auto it : killList)
-		cout << "\t KILLING " << it->Advance().Name() << endl;
 	
 	for (auto tree : killList)
 		delete tree;
 }
 
 void ForestT::AddAdvance(AdvanceT newAdvance) {
-	if (FindAdvance(newAdvance.Name()) != nullptr)
+	if (AdvanceExists(newAdvance.Name()))
 		throw ADVANCE_ALREADY_EXISTS;
 
 	ptr foundAdvance;
@@ -76,7 +68,7 @@ ptr ForestT::DFS(ptr tree, string advanceName) const {
 			if (foundAdvance != nullptr)
 				return foundAdvance;
 		}
-	return nullptr; //???maybe???
+	return nullptr;
 }
 
 void ForestT::FixAdvances() {
