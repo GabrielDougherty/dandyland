@@ -2,7 +2,7 @@
 #define NODE
 #include "Advance.h"
 #include <iostream>
-#include <memory>
+#include <algorithm>
 #include <vector>
 
 class NodeT;
@@ -23,6 +23,9 @@ public:
 	bool IsChild(const AdvanceT&) const;
 	bool IsParent(const AdvanceT&) const;
 private:
+	bool FindAdvance(const std::vector<ptr>&,
+					 const AdvanceT&) const;
+
 	AdvanceT advance;
 	std::vector<ptr> children;
 	std::vector<ptr> parents;

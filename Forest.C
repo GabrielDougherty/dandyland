@@ -92,11 +92,12 @@ void ForestT::FixAdvances() {
 }
 
 void ForestT::FixParents(ptr tree) {
-	for (auto req : tree->Advance().Requirements()) {
+	for (string req : tree->Advance().Requirements()) {
 		ptr foundReq = FindAdvance(req);
 
 		// if the node is not a child of the parent
-		if (!foundReq->IsParent(tree->Advance()))
+		if (!tree->IsChild(foundReq->Advance()))
+			//		if (!foundReq->IsParent(tree->Advance()))
 			foundReq->AddChild(tree);
 	}
 	for (auto child : tree->Children())

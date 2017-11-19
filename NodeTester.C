@@ -2,6 +2,10 @@
 
 using namespace std;
 
+
+// This does not work
+// NodeTester::NodeTester(const string filename) : ReadFile(filename), BuildTree() {}
+
 NodeTester::NodeTester(const string filename) {
 	// These didn't work in an initializer list...
 	ReadFile(filename);
@@ -24,7 +28,7 @@ void NodeTester::ReadFile(string filename) {
 }
 
 void NodeTester::BuildTree() {
-	cout << endl << LINE << endl << "Building Tree" << endl;
+	cout << endl << LINE << endl << "Building Node Relationship List" << endl;
 	
 	// set up some dumb parent-child relationships
 	// i          i+1          i+2
@@ -43,7 +47,7 @@ void NodeTester::BuildTree() {
 }
 
 void NodeTester::PrintNodes() const {
-	cout << endl << LINE << endl << "Printing tree" << endl;
+	cout << endl << LINE << endl << "Printing Node Relationships" << endl;
 
 	for (auto node : nodes) {
 		cout << endl << "Node Name: " << node->Advance().Name()
@@ -61,16 +65,27 @@ void NodeTester::PrintNodes() const {
 
 // tests ForestT::IsChild()
 void NodeTester::TestIsChild(const int i) const {
+	// the node should be a child of the i+1th node
 	assert(nodes.at(i)->IsChild(nodes.at(i+1)->Advance()));
+
+	// the node should not be a child of Bob the Builder
+	assert(!nodes.at(i)->IsChild(AdvanceT("Bob the Builder,-,Yes We Can")));
 }
 
 // tests ForestT::IsParent()
 void NodeTester::TestIsParent(const int i) const {
+	// the node should be a parent of the i+2th node
 	assert(nodes.at(i)->IsParent(nodes.at(i+2)->Advance()));
+
+	// the node should not be a parent of Bob the Builder
+	assert(!nodes.at(i)->IsParent(AdvanceT("Bob the Builder,-,Yes We Can")));
 }
 
 // tests ForestT::Parents()
 void NodeTester::TestParents(const int i) const {
+	// Make a Bob the Builder node
+	NodeT bobTheBuilder(AdvanceT("Bob the Builder,-,Yes We Can"));
+
 	// save other node's children
 	const vector<ptr> otherChildren = nodes.at(i+1)->Children();
 	const vector<ptr> parents = nodes.at(i)->Parents();
@@ -78,13 +93,24 @@ void NodeTester::TestParents(const int i) const {
 	// the other node should have this node as its child
 	assert(find(otherChildren.cbegin(), otherChildren.cend(),
 				nodes.at(i)) != otherChildren.end());
+	// the other node should not have Bob the Builder as its child
+	assert(find(otherChildren.cbegin(), otherChildren.cend(),
+				&bobTheBuilder) == otherChildren.cend());
+	
 	// this node should have the other node as its parent
 	assert(find(parents.cbegin(), parents.cend(),
 				nodes.at(i+1)) != parents.cend());
+	// this node should not have Bob the Builder as its parent
+	assert(find(parents.cbegin(), parents.cend(),
+				&bobTheBuilder) == parents.cend());
+
 }
 
 // tests ForestT::Children()
 void NodeTester::TestChildren(const int i) const {
+	// Make a Bob the Builder node
+	NodeT bobTheBuilder(AdvanceT("Bob the Builder,-,Yes We Can"));
+
 	// save other nodes' parents
 	const vector<ptr> otherParents = nodes.at(i+2)->Parents();
 	const vector<ptr> children = nodes.at(i)->Children();
@@ -92,9 +118,17 @@ void NodeTester::TestChildren(const int i) const {
 	// the other node should have this node as its parent
 	assert(find(otherParents.cbegin(), otherParents.cend(),
 				nodes.at(i)) != otherParents.end());
+	// the other node should not have Bob the Builder as its parent
+	assert(find(otherParents.cbegin(), otherParents.cend(),
+				&bobTheBuilder) == otherParents.end());
+	
 	// this node should have the other node as its child
 	assert(find(children.cbegin(), children.cend(),
 				nodes.at(i+2)) != children.cend());
+	// this node should not have Bob the Builder as its child
+	assert(find(children.cbegin(), children.cend(),
+				&bobTheBuilder) == children.cend());
+
 }
 
 void NodeTester::RunAllTests() const {
