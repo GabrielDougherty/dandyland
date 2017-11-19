@@ -1,15 +1,12 @@
 #include "Forest.h"
 #include "Node.h"
-#include "NodeTestUtils.h"
+#include "NodeTester.h"
 #include <iostream>
 #include <assert.h>
 
+const char * LINE = "------------------------------------------";
+
 using namespace std;
-
-// this is a global variable because I delete the data in atexit(),
-// which takes a function pointer, and function pointers can't take// parameters
-std::vector<ptr> nodes;
-
 /*
 class ForestTesterT : public ForestT {
 public:
@@ -19,27 +16,37 @@ public:
 };
 */
 
-void TestAdvanceExists(const vector<ptr>& nodes,
+void TestAdvanceExists(const vector<ptr> nodes,
 					   const ForestT& forest) {
-	cout << endl << NodeTestUtils::LINE << endl << "Testing AdvanceExists()"
+	cout << endl << LINE << endl << "Testing AdvanceExists()"
 		 << endl;
-	for (auto node : nodes)
+	for (auto node : nodes) {
 		assert(forest.AdvanceExists(node->Advance().Name()));
+		cout << ".";
+	}
+	assert(!forest.AdvanceExists("Bob the Builder"));
 	cout << "Success" << endl;
 }
 
-int main() {
-	// build a vector of advances with which to compare the
-	// forest to
-	ifstream inFile("Advance");
-
-	atexit(NodeTestUtils::DeleteNodes);
-	NodeTestUtils::ReadTreeFile(nodes, inFile);
-	
-	ForestT forest("Advance");
-
-	TestAdvanceExists(nodes, forest);
+void PrintForest(const ForestT& forest) {
+	cout << endl << LINE << endl << "Printing Forest" << endl
+		 << LINE << endl;
 
 	forest.PrintAll();
+}	
+
+int main() {
+	// Build a list of nodes from "Advance"
+	NodeTester tester;
+
+	ForestT forest;
+
+	cout << endl << LINE << endl
+		 << "Running ForestT Tests" << endl;
+	
+	TestAdvanceExists(tester.Nodes(), forest);
+
+	PrintForest(forest);
+
 	return 0;
 }

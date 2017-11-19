@@ -3,12 +3,12 @@ CC=g++ # got weird errors without this...?
 
 #OBJS =   main  AllTest
 #OBJS = NodeTest
-OBJS = ForestTest main AllTest #NodeTest
+OBJS = ForestTest main AllTest NodeTest
 
 all: ${OBJS}
 
-ForestTest: Forest.o Advance.o Node.o NodeTestUtils.o
-NodeTest: NodeTestUtils.o Node.o Advance.o
+ForestTest: Forest.o Advance.o Node.o NodeTester.o
+NodeTest: NodeTester.o Node.o Advance.o
 main: Forest.o Node.o Advance.o
 AllTest: Forest.o Node.o Advance.o
 
@@ -16,7 +16,7 @@ all: ${OBJS}
 
 Advance.o: Advance.h
 Node.o: Node.h Advance.h
-NodeTestUtils.o: NodeTestUtils.h
+NodeTester.o: Node.o
 
 Forest.o: Forest.h Node.h Advance.h
 
