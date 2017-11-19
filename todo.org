@@ -8,7 +8,7 @@
 ** DONE Change comment [[file:NodeTest.C::41][here]]
 ** DONE Make TestTree smaller [[file:NodeTester.C::L62][here]]
 ** DONE Fix PrintParents() [[file:Forest.C::125][here]]
-* TODO Things left to implement[3/4]
+* DONE Things left to implement[4/4]
 ** DONE NodeT
 *** Implement Parents() and Children()
 ** DONE NodeTest [3/3]
@@ -33,20 +33,20 @@
 **** DONE DFSPrint
 *** DONE Direction
 **** just put it in Forest**
-** TODO ForestTest [1/2]
+** DONE ForestTest [3/3]
 *** DONE Implement
-*** TODO Test functions [0/13]
-**** TODO ctor
-**** TODO AddAdvance
-**** TODO FindAdvance
-**** TODO DFS
-**** TODO FixAdvances
-**** TODO FixParents
-**** TODO Destructor
-**** TODO KillTree
-**** TODO AdvanceExists
-**** TODO PrintParents
-**** TODO PrintChildren
-**** TODO PrintAll
-**** TODO DFSPrint
-
+*** DONE Test functions [13/13]
+**** DONE ctor
+**** DONE AddAdvance
+**** DONE FindAdvance
+**** DONE DFS
+**** DONE FixAdvances
+**** DONE FixParents
+**** DONE Destructor
+**** DONE KillTree
+**** DONE AdvanceExists
+**** DONE PrintParents
+**** DONE PrintChildren
+**** DONE PrintAll
+**** DONE DFSPrint
+*** DONE Test throwing on AddAdvance
