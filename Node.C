@@ -11,7 +11,7 @@ const AdvanceT NodeT::Advance() const {
 
 void NodeT::AddParent(ptr other) {
 	if (other != nullptr) {
-		if (!IsChild(other->Advance())) {
+		if (!other->IsParent(advance)) {
 			parents.push_back(other);
 			other->AddChild(this);
 		}
@@ -20,7 +20,7 @@ void NodeT::AddParent(ptr other) {
 
 void NodeT::AddChild(ptr other) {
 	if (other != nullptr) {
-		if (!IsParent(other->Advance())) {
+		if (!other->IsChild(advance)) {
 			children.push_back(other);
 			other->AddParent(this);
 		}

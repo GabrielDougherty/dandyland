@@ -5,7 +5,6 @@
 using namespace std;
 
 ForestT::ForestT(string filename) {
-	// This is not done probably maybe
 	ifstream inFile(filename);
 
 	string line;
@@ -62,12 +61,11 @@ ptr ForestT::DFS(ptr tree, string advanceName) const {
 		return nullptr;
 	if (tree->Advance().Name() == advanceName)
 		return tree;
-	else
-		for (auto child : tree->Children()) {
-			ptr foundAdvance = DFS(child, advanceName);
-			if (foundAdvance != nullptr)
-				return foundAdvance;
-		}
+	for (auto child : tree->Children()) {
+		ptr foundAdvance = DFS(child, advanceName);
+		if (foundAdvance != nullptr)
+			return foundAdvance;
+	}
 	return nullptr;
 }
 

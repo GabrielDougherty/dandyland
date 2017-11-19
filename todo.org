@@ -1,12 +1,13 @@
 *CSCI 330 Homework 7 TODO*
-* TODO Fixes[5/7]
+* TODO Fixes[6/8]
 ** TODO change "ptr" to something that makes sense [[file:Node.h::10][here]]
 ** DONE DFSPrint
 ** DONE Forest fix DFS
 ** DONE +AddAdvance+
 ** DONE +FixAdvances+
 ** DONE Change comment [[file:NodeTest.C::41][here]]
-** TODO Make TestTree smaller [[file:NodeTester.C::L62][here]]
+** DONE Make TestTree smaller [[file:NodeTester.C::L62][here]]
+** TODO Fix PrintParents() [[file:Forest.C::125][here]]
 * TODO Things left to implement[3/4]
 ** DONE NodeT
 *** Implement Parents() and Children()
