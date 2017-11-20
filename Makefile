@@ -1,9 +1,9 @@
 CXXFLAGS = -g -O3 -Wall -Wextra -Wuninitialized -pedantic -std=c++14
-CC=g++ # got weird errors without this...?
+#CC=g++
 
 #OBJS =   main  AllTest
 #OBJS = NodeTest
-OBJS = ForestTest main AllTest NodeTest
+OBJS = ForestTest NodeTest main
 
 all: ${OBJS}
 

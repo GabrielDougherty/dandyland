@@ -1,3 +1,6 @@
+// ForestTest.C
+// Gabriel Dougherty
+
 #include "Forest.h"
 #include "Node.h"
 #include "NodeTester.h"

@@ -1,3 +1,6 @@
+// Forest.C
+// Gabriel Dougherty
+
 #include "Forest.h"
 #include <iostream>
 #include <fstream>

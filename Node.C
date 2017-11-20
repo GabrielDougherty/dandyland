@@ -1,3 +1,5 @@
+// Node.C
+// Gabriel Dougherty
 #include <iostream>
 #include "Node.h"
 #include "Advance.h"

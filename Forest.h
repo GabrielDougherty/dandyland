@@ -1,3 +1,6 @@
+// Forest.h
+// Gabriel Dougherty
+
 #ifndef FOREST
 #define FOREST
 #include <vector>

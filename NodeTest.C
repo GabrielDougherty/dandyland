@@ -3,6 +3,7 @@
 using namespace std;
 
 int main() {
+	cout << "TESTING NODE" << endl << endl;
 
 	// test with "Advance" input file
 	NodeTester tester;

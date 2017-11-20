@@ -1,3 +1,6 @@
+// NodeTester.h
+// Gabriel Dougherty
+
 #pragma once
 #include "Node.h"
 #include <iostream>

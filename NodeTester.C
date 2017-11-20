@@ -1,3 +1,6 @@
+// NodeTester.C
+// Gabriel Dougherty
+
 #include "NodeTester.h"
 
 using namespace std;

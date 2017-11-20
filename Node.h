@@ -1,3 +1,6 @@
+// Node.h
+// Gabriel Dougherty
+
 #ifndef NODE
 #define NODE
 #include "Advance.h"
@@ -8,6 +11,7 @@
 class NodeT;
 
 typedef NodeT * ptr;
+
 class NodeT {
 public:
 	NodeT()=delete;
