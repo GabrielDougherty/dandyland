@@ -154,8 +154,10 @@ void ForestT::DFSPrint(ptr tree, int depth,
 	case DirectionT::UP:
 		for (auto parent : tree->Parents())
 			DFSPrint(parent, depth+1, DirectionT::UP);
+		break;
 	case DirectionT::DOWN:
 		for (auto child : tree->Children())
 			DFSPrint(child, depth+1, DirectionT::DOWN);
+		break;
 	}
 }

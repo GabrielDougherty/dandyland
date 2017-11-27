@@ -16,6 +16,8 @@ public:
 	inline ForestT() : ForestT("Advance") {}
 	ForestT(std::string);
 	~ForestT();
+	ForestT(const ForestT&) =delete;
+	ForestT operator=(const ForestT & ) =delete;
 
 	bool AdvanceExists(std::string) const;
 

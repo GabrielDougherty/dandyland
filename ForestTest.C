@@ -38,12 +38,12 @@ void PrintForest(const ForestT& forest) {
 	forest.PrintAll();
 }	
 
-void TestAdvanceAlreadyExists(ForestT& forest) {
+void TestAdvanceAlreadyExists() {
 	cout << endl << LINE << endl << "Testing ADVANCE_ALREADY_EXISTS error in AddAdvance()" << endl
 		 << LINE << endl;
 
 	try {
-		forest = ForestT("BadAdvance");
+		ForestT badForest("BadAdvance");
 	} catch (int error) {
 		if (error == 1)
 			cerr << "Caught ADVANCE_ALREADY_EXISTS; test Success" << endl;
@@ -66,7 +66,7 @@ int main() {
 		
 	PrintForest(forest);
 
-	TestAdvanceAlreadyExists(forest);
+	TestAdvanceAlreadyExists();
 
 
 	return 0;
