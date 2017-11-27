@@ -1,0 +1,138 @@
+Script started on Sat 18 Nov 2017 02:44:40 PM EST
+]777;notify;Command completed;exit]0;g803819d@cslab172:~/dev/330/hw7]7;file://cslab172/home/CS/g803819d/dev/330/hw7[14:44] g803819d@cslab172:~/dev/330/hw7 $ make
+make: Nothing to be done for 'all'.
+]777;notify;Command completed;make]0;g803819d@cslab172:~/dev/330/hw7]7;file://cslab172/home/CS/g803819d/dev/330/hw7[14:44] g803819d@cslab172:~/dev/330/hw7 $ ma[K[Kecho "MAKE MEMCHECK [K[K[K[K[K[K[K[K[K[K[K[K[K[KQUIT" | make memcheck
+valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all ./main
+==5371== Memcheck, a memory error detector
+==5371== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==5371== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==5371== Command: ./main
+==5371== 
+Loaded advances: 
+Pottery
+Sailing
+	Navigation
+	Geography
+Archery
+	Siegecraft
+Wheel
+	Chariots
+Music
+Metal Work
+	Trade School
+Roads
+Masonry
+	Architecture
+		Engineering
+			Aqueduct
+	Fortifications
+Writing
+	Philosophy
+		College
+			University
+				Research University
+		Library
+	Literature
+		School
+			Trade School
+			College
+				University
+					Research University
+			Library
+		Library
+	Law
+		Monarchy
+			Politics
+		University
+			Research University
+Shipbuilding
+	Biremes
+		Triremes
+Mythology
+	Drama
+	Monotheism
+Husbandry
+	Medicine
+	Cavalry
+	Irrigation
+Mining
+Mathematics
+	Geography
+	School
+		Trade School
+		College
+			University
+				Research University
+		Library
+	Library
+	Coinage
+Glass Working
+Enter an advance to explore => ENTERING DESTRUCTOR
+KILLLIST LENGTH42
+	 KILLING Pottery
+	 KILLING Sailing
+	 KILLING Navigation
+	 KILLING Geography
+	 KILLING Archery
+	 KILLING Siegecraft
+	 KILLING Wheel
+	 KILLING Chariots
+	 KILLING Music
+	 KILLING Metal Work
+	 KILLING Trade School
+	 KILLING Roads
+	 KILLING Masonry
+	 KILLING Architecture
+	 KILLING Engineering
+	 KILLING Aqueduct
+	 KILLING Fortifications
+	 KILLING Writing
+	 KILLING Philosophy
+	 KILLING College
+	 KILLING University
+	 KILLING Research University
+	 KILLING Library
+	 KILLING Literature
+	 KILLING School
+	 KILLING Law
+	 KILLING Monarchy
+	 KILLING Politics
+	 KILLING Shipbuilding
+	 KILLING Biremes
+	 KILLING Triremes
+	 KILLING Mythology
+	 KILLING Drama
+	 KILLING Monotheism
+	 KILLING Husbandry
+	 KILLING Medicine
+	 KILLING Cavalry
+	 KILLING Irrigation
+	 KILLING Mining
+	 KILLING Mathematics
+	 KILLING Coinage
+	 KILLING Glass Working
+==5371== 
+==5371== HEAP SUMMARY:
+==5371==     in use at exit: 72,704 bytes in 1 blocks
+==5371==   total heap usage: 5,664 allocs, 5,663 frees, 274,582 bytes allocated
+==5371== 
+==5371== 72,704 bytes in 1 blocks are still reachable in loss record 1 of 1
+==5371==    at 0x4C28BF6: malloc (vg_replace_malloc.c:299)
+==5371==    by 0x4EBF17F: ??? (in /usr/lib64/libstdc++.so.6.0.21)
+==5371==    by 0x400F739: call_init.part.0 (in /usr/lib64/ld-2.22.so)
+==5371==    by 0x400F84A: _dl_init (in /usr/lib64/ld-2.22.so)
+==5371==    by 0x4000CB9: ??? (in /usr/lib64/ld-2.22.so)
+==5371== 
+==5371== LEAK SUMMARY:
+==5371==    definitely lost: 0 bytes in 0 blocks
+==5371==    indirectly lost: 0 bytes in 0 blocks
+==5371==      possibly lost: 0 bytes in 0 blocks
+==5371==    still reachable: 72,704 bytes in 1 blocks
+==5371==         suppressed: 0 bytes in 0 blocks
+==5371== 
+==5371== For counts of detected and suppressed errors, rerun with: -v
+==5371== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+]777;notify;Command completed;echo "QUIT" | make memcheck]0;g803819d@cslab172:~/dev/330/hw7]7;file://cslab172/home/CS/g803819d/dev/330/hw7[14:44] g803819d@cslab172:~/dev/330/hw7 $ exit
+exit
+
+Script done on Sat 18 Nov 2017 02:44:58 PM EST
