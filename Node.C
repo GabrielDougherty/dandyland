@@ -41,10 +41,11 @@ const vector<ptr> NodeT::Children() const {
 bool NodeT::FindAdvance(const vector<ptr>& nodeList,
 						const AdvanceT& other) const {
 	// return whether the node was found in the given list
-	return find_if(nodeList.cbegin(), nodeList.cend(),
-				   [other](const ptr& node) {
-					   return node->Advance() == other;})
-		!= nodeList.cend();
+	auto foundPos = find_if(nodeList.cbegin(), nodeList.cend(),
+							[other](const ptr& node) {
+								return node->Advance() == other;
+							});
+	return foundPos != nodeList.cend();
 
 	// alternate implementation
 	/*
